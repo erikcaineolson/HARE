@@ -1,2 +1,6 @@
 <h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
+<% @listings.each do |listing| %>
+	<h3><%= link_to listing.title,listing %></h3>
+	<p><%= listing.body %></p>
+	<hr>
+<% end %>
