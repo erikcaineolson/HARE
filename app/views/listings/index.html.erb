@@ -1,0 +1,6 @@
+<h1>Listings#index</h1>
+<% @listings.each do |listing| %>
+	<h3><%= link_to listing.title,listing %></h3>
+	<p><%= listing.body %></p>
+	<hr>
+<% end %>
