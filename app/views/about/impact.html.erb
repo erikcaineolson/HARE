@@ -1,0 +1,136 @@
+<!--GENERATE CHARTS-->
+<head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Generate the "total donations by resource category bar chart"
+      google.charts.setOnLoadCallback(drawOverallChart);
+
+      // Generate the "donations by zip code bar chart"
+      google.charts.setOnLoadCallback(drawZipComparisonChart);
+
+      // Total donations by resource category
+      function drawOverallChart() {
+
+        // Create the data table
+      var data = google.visualization.arrayToDataTable([
+        ['Area', 'Office', 'Furniture', 'Computers', 'Hygeine', 'Clothing', 'Vehicles'],
+        ['All',     33,         14,          11,        56,          78,        3     ],
+      ]);
+
+      var options = {
+        width: 900,
+        height: 200,
+        legend: { position: 'bottom', maxLines: 3 },
+        bar: { groupWidth: '75%' },
+        isStacked: true
+      };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_overall'));
+        chart.draw(data, options);
+
+      }
+
+      // Donations by zip code
+      function drawZipComparisonChart() {
+
+        // Create the data table.
+      var data = google.visualization.arrayToDataTable([
+        ['Area', 'Office', 'Furniture', 'Computers', 'Hygeine', 'Clothing', 'Vehicles'],
+        ['95832',   12,          6,           3,        34,          22,        2     ],
+        ['95833',   10,          7,           2,        10,          35,        1     ],
+        ['95844',   11,          1,           6,        12,          21,        0     ],
+      ]);
+
+      var options = {
+        width: 900,
+        height: 200,
+        legend: { position: 'bottom', maxLines: 3 },
+        bar: { groupWidth: '75%' },
+        isStacked: true
+      };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_comparison'));
+        chart.draw(data, options);
+
+      }
+    </script>
+<!--GENERATE CHARTS END-->
+</head>
+
+
+
+<!--HARE, sign up/log in header-->
+<%= render 'about/header_not_signed_in' %>
+
+<!--BLOCK ONE-->
+<div class="dark-blue-background" align="left">
+<div class="row">
+  <div class="large-6 columns">
+    <h4 id="white-font">HARE connects people who share the common goal of providing Human Assistance.</h4>
+    <br>
+    <h4 id="white-font">So far our network has helped make [y] donation exchanges between [x] individuals and organizations.</h4>
+  </div>
+  <div class="large-6 columns">
+    <h2 id="white-font">[Y] donations exchanged</h2>
+    <br><br>
+    <h2 id="white-font">[X] people connected</h2>
+  </div>
+</div>
+</div>
+<!--BLOCK ONE END-->
+
+<!--BLOCK TWO-->
+<!--CHARTS-->
+<div class="white-background">
+<center>
+<h2 id="light-blue-font">Total donations by resource category</h2>
+<div id="chart_overall"></div>
+<br>
+<h2 id="light-blue-font">Where are donations coming from?</h2>
+<div id="chart_comparison"></div>
+<br>
+</center>
+</div>
+<!--CHARTS END-->
+<!--TESTIMONIALS-->
+<div class="testimonial-wrap">
+  <div class="row">
+    <div class="large-12 columns centered-text">
+      <h2 id="light-blue-font">Your donations make an impact</h2>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns testimonial">
+      <div class="quote">
+        <h5><font color="#000000">Company's donation of 10 dekstop computers helped my fifth grade class learn how to use educational technology to enhance their learning!</font></h5>
+      </div>
+      <div class="student">
+        <div class="photo"> </div>
+        <p>Teacher Name</p>
+        <p>School, School Distrcit</p>
+      </div>
+    </div>
+    <div class="large-6 columns testimonial">
+      <div class="quote">
+        <h5><font color="#000000">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices, elit sed faucibus pharetra, diam mauris bibendum orci, sit amet ullamcorper purus dui sit amet augue. Donec aliquet diam ut neque mattis, eu tristique sem rutrum.</font></h5>
+      </div>
+      <div class="student">
+        <div class="photo"> </div>
+        <p>John Doe</p>
+        <p>Important person, some Company</p>
+      </div>
+    </div>
+  </div>
+  </div>
+<!--TESTIMONIALS END-->
+<!--BLOCK THREE END-->
+
+<!--get involved/join footer-->
+<%= render 'about/header_not_signed_in' %>
