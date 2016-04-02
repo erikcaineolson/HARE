@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331062611) do
+ActiveRecord::Schema.define(version: 20160401210147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,12 +80,13 @@ ActiveRecord::Schema.define(version: 20160331062611) do
   add_index "followed_listings", ["user_id"], name: "index_followed_listings_on_user_id", using: :btree
 
   create_table "listings", force: :cascade do |t|
-    t.string   "title",                                                    null: false
+    t.string   "title",                                                                                         null: false
     t.text     "description"
-    t.decimal  "fair_market_value", precision: 10, scale: 2, default: 0.0, null: false
+    t.decimal  "fair_market_value", precision: 10, scale: 2, default: 0.0,                                      null: false
     t.integer  "user_id"
-    t.datetime "created_at",                                               null: false
-    t.datetime "updated_at",                                               null: false
+    t.datetime "created_at",                                                                                    null: false
+    t.datetime "updated_at",                                                                                    null: false
+    t.string   "image_url",                                  default: "http://placehold.it/100x100&text=[img]"
   end
 
   create_table "listings_categories", force: :cascade do |t|
