@@ -6,7 +6,6 @@
 
 <!--TAB 1: VIEW LISTINGS: Check box for item categories-->
     <% unless @categories.empty? %>
-    <div class="row">
       <div class="large-3 columns" id="listing-filters">
           <h3>Filter by Item Category:</h3>
           <% i ||= 0 %>
@@ -18,12 +17,11 @@
               </div>
             <% end %>
       </div>
-    </div>
     <% end %>
 
       <% if @listings.empty? %>
-          <div class="large-3 columns">
-              <h4>No Listings to Display</h4>
+          <div class="large-3 columns" align="center">
+              <h4><center>No Listings to Display</h4></center>
           </div>
       <% else %>
         <% @listings.each do |listing| %>
