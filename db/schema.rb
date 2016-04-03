@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 20160401210147) do
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
+  create_table "donation_application_trackers", force: :cascade do |t|
+    t.integer  "user_id",                                     null: false
+    t.integer  "listing_id",                                  null: false
+    t.datetime "submission_date"
+    t.string   "approval_status",        default: "not seen"
+    t.text     "approval_status_reason"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.string   "submission_status"
+  end
+
   create_table "followed_listings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "listing_id"
@@ -80,13 +91,13 @@ ActiveRecord::Schema.define(version: 20160401210147) do
   add_index "followed_listings", ["user_id"], name: "index_followed_listings_on_user_id", using: :btree
 
   create_table "listings", force: :cascade do |t|
-    t.string   "title",                                                                                         null: false
+    t.string   "title",                                                    null: false
     t.text     "description"
-    t.decimal  "fair_market_value", precision: 10, scale: 2, default: 0.0,                                      null: false
+    t.decimal  "fair_market_value", precision: 10, scale: 2, default: 0.0, null: false
     t.integer  "user_id"
-    t.datetime "created_at",                                                                                    null: false
-    t.datetime "updated_at",                                                                                    null: false
-    t.string   "image_url",                                  default: "http://placehold.it/100x100&text=[img]"
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.string   "image_url"
   end
 
   create_table "listings_categories", force: :cascade do |t|
