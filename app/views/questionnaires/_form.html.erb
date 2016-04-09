@@ -1,0 +1,7 @@
+<%= simple_form_for(@responses, :url => user_questionnaire_path, :method => :post) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.hidden :question_id %>
+      <%= f.input :response_text %>
+    </div>
+<% end %>
