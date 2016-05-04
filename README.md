@@ -8,6 +8,7 @@ The mission of SHARE is to break down the silos between government agencies and 
 - Erik C. Olson (@erikcaineolson), erik@hax.help
 - Neal Fennimore (@nealfennimore), neal@hax.help
 - Joanne Wu (@joawu), joanne@hax.help
+- Koni Davies (@koni-davies), konidavies@gmail.com
 
 ### Stakeholder Engagement
 - Jerry Gray, DTech (Sac County Dept of Technology)
